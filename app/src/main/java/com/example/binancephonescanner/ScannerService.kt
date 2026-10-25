@@ -97,8 +97,8 @@ class ScannerService : Service() {
                 }
             }
             val message = if (found.isEmpty()) "일치 종목 없음" else "조건 일치 ${found.size}개: ${found.take(20).joinToString(", ")}"
-            appendLog("${stamp()} | 검사 완료 | $checked개 검사 · ${found.size}개 일치")
-            broadcast(if (running.get()) "감시 실행 중" else "감시 중지", 100, "$checked개 검사 완료 · ${found.size}개 일치", message)
+            appendLog("${stamp()} | 검사 완료 | ${checked}개 검사 · ${found.size}개 일치")
+            broadcast(if (running.get()) "감시 실행 중" else "감시 중지", 100, "${checked}개 검사 완료 · ${found.size}개 일치", message)
             if (found.isNotEmpty()) notifyMatches(found)
         } catch (e: Exception) {
             appendLog("${stamp()} | 검사 실패 | ${e.message ?: "네트워크 오류"}")
