@@ -4,15 +4,15 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 data class ScanCondition(
-    val type: String = "volume",
-    val timeframe: String = "1h",
-    val operator: String = "gte",
-    val value: Double = 4.5,
-    val secondValue: Double = 0.0,
-    val maType: String = "EMA",
-    val fastPeriod: Int = 10,
-    val slowPeriod: Int = 20,
-    val mode: String = "multiple"
+    var type: String = "volume",
+    var timeframe: String = "1h",
+    var operator: String = "gte",
+    var value: Double = 4.5,
+    var secondValue: Double = 0.0,
+    var maType: String = "EMA",
+    var fastPeriod: Int = 10,
+    var slowPeriod: Int = 20,
+    var mode: String = "multiple"
 ) {
     fun toJson() = JSONObject().apply {
         put("type", type); put("timeframe", timeframe); put("operator", operator)
